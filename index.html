@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turbocoin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <div class="leagues" id="leagues"><span class="leagues" id="leagues"></span> League</div>
+            <p style="color: #4caf50; font-weight: bold;"> | </p>
+            <div class="pps" id="pps">0 Profit Per Second</div>
+        </div>
+        <div class="coin-container">
+            <div class="balance" id="balance">0 $TURBO</div>
+            <br><br><br>
+            <div id="coin">
+                <img src="turbocoin.png" alt="Turbocoin" onclick="clickCoin()">
+            </div>
+            <div class="energy-bar-container">
+                <br>
+                <div class="energy-bar" id="energy-bar"></div>
+                <div class="energy-status" id="energy-status">100/100</div>
+            </div>
+        </div>
+        <button class="boosts-btn" onclick="window.location.href='boosts.html'">Boosts</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

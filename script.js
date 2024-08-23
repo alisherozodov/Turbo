@@ -44,7 +44,7 @@ loadGame();
 function clickCoin() {
     if (energy > 0) {
         balance += clickPower;
-        energy -= 1;
+        energy -= clickPower;
         updateUI();
         saveGame();
     }
@@ -114,7 +114,6 @@ function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
         energy += addedEnergy;
         maxEnergy += addedEnergy;
         saveGame();
-        updateUI();
     } else {
         alert('Insufficient $TURBO');
     }

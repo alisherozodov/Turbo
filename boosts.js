@@ -31,3 +31,17 @@ function loadGame() {
         maxEnergy = parseInt(localStorage.getItem("maxEnergy"));
     }
 }
+
+function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
+    loadGame();
+    if (balance >= cost) {
+        balance -= cost;
+        pps += addedPps;
+        clickPower += addedClickPower;
+        energy += addedEnergy;
+        maxEnergy += addedEnergy;
+        saveGame();
+    } else {
+        alert('Insufficient $TURBO');
+    }
+}

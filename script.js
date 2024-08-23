@@ -53,6 +53,10 @@ function loadGame() {
     } else {
         maxEnergy = parseInt(localStorage.getItem("maxEnergy"));
     }
+    if (localStorage.getItem("banned") == "ture"){
+        window.location.href = "https://turboclicker.vercel.app/banned.html/";
+        return false;
+    }
     if (localStorage.getItem("lastUpdate") == null){
         return false;
     } else {
@@ -156,7 +160,7 @@ function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
 function openboosts(){
     document.getElementById("gamemenu").style.setProperty("display", "none");
     document.getElementById("boostsmenu").style.setProperty("display", "flex");
-    document.body.style.setProperty("padding-top", "50%");
+    document.body.style.setProperty("padding-top", "40%");
     document.body.style.setProperty("padding-bottom", "30%");
 }
 
@@ -190,8 +194,23 @@ function createParticle(parentElement = document.body, text) {
     return particle;
 }
 
+let autotapchecker = 0;
+let lastx = 0;
+let lasty = 0;
+
 coin.addEventListener("click", function() {
     if (energy >= 1){
+        if (lastx == x && lasty == y){
+            autotapchecker += 1;
+            if (autotapchecker == 100){
+                localStorage.setItem("banned", "true");
+                window.location.href = "https://turboclicker.vercel.app/banned.html/";
+            }
+        } else {
+            autotapchecker = 0;
+        }
+        lastx = x;
+        lasty = y;
         const particle = createParticle(parentElement = coin, clickPower);
         particle.addEventListener("animationend", function() {
             particle.remove();

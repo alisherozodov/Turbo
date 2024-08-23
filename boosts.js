@@ -32,6 +32,14 @@ function loadGame() {
     }
 }
 
+function saveGame() {
+    localStorage.setItem('balance', balance);
+    localStorage.setItem('pps', pps);
+    localStorage.setItem('clickPower', clickPower);
+    localStorage.setItem('energy', energy);
+    localStorage.setItem('maxEnergy', maxEnergy);
+}
+
 function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
     loadGame();
     if (balance >= cost) {

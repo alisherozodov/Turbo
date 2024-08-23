@@ -3,6 +3,8 @@ let pps = 1;
 let clickPower = 1;
 let energy = 100;
 let maxEnergy = 100;
+let lastUpdate = 0;
+
 
 document.getElementById('balance').innerHTML = `${balance} $TURBO`;
 document.getElementById('pps').innerHTML = `${pps} Profit Per Second`;
@@ -49,9 +51,12 @@ function loadGame() {
     } else {
         maxEnergy = parseInt(localStorage.getItem("maxEnergy"));
     }
+    if (localStorage.getItem("lastUpdate") == null){
+        return false;
+    } else {
+        lastUpdate = localStorage.getItem("lastUpdate");
+    }
 }
-loadGame();
-updateUI();
 
 function saveGame() {
     localStorage.setItem('balance', balance);
@@ -60,6 +65,19 @@ function saveGame() {
     localStorage.setItem('energy', energy);
     localStorage.setItem('maxEnergy', maxEnergy);
 }
+
+if (loadGame()){
+    let timePassed = Math.floor((Date.now() - lastUpdate) / 1000);
+    loaded_balance = Math.min(timePassed * pps, 3600 * pps);
+    energy = Math.min(maxEnergy, energy+timePassed);
+    balance += loaded_balance;
+    document.getElementById("dialog-icon").style.setProperty("fill", "green");
+    document.getElementById("dialog-icon").innerHTML = `Bot loaded ${loaded_balance} $TURBO for you!`;
+    showdialog();
+    saveGame();
+}
+
+updateUI();
 
 function clickCoin() {
     if (energy > clickPower) {
@@ -180,3 +198,8 @@ function closedialog(){
     setTimeout(function(){document.querySelector('.dialog').style.setProperty("display", "none")}, 500);
     
 }
+
+window.addEventListener('beforeunload', () => {
+    const currentTime = Date.now();
+    localStorage.setItem('lastUpdate', currentTime);
+});

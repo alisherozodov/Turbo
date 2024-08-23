@@ -57,7 +57,7 @@ function saveGame() {
 }
 
 function clickCoin() {
-    if (energy > 0) {
+    if (energy > clickPower) {
         balance += clickPower;
         energy -= clickPower;
         updateUI();

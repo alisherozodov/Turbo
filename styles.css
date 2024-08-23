@@ -20,7 +20,7 @@ body {
 .game-container {
     text-align: center;
     width: 100vw;
-    height: fit-content;
+    height: 100vh;
     padding: 0px 20px;
     background: #212121;
     display: flex;
@@ -28,7 +28,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: 30px;
-    box-shadow: inset 0 0 20px 10px rgba(0, 255, 0, 0.5);
 }
 .header {
     display: flex;

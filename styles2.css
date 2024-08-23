@@ -37,7 +37,6 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
 }
 .boost span {
     font-size: 14px;

@@ -160,6 +160,9 @@ body {
     bottom: 30px;
     width: 80%;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: #4caf50;
     border: none;
     border-radius: 10px;
 }

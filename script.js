@@ -128,7 +128,7 @@ function openboosts(){
     document.getElementById("boostsmenu").style.setProperty("display", "flex");
 }
 
-function bakctogames(){
+function backtogames(){
     document.getElementById("gamemenu").style.setProperty("display", "flex");
     document.getElementById("boostsmenu").style.setProperty("display", "none");
 }

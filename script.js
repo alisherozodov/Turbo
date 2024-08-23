@@ -7,6 +7,15 @@ let maxEnergy = 100;
 document.getElementById('balance').innerHTML = `${balance} $TURBO`;
 document.getElementById('pps').innerHTML = `${pps} Profit Per Second`;
 document.getElementById('energy-status').innerHTML = `${energy}/${maxEnergy}`;
+
+function updateUI() {
+    document.getElementById('balance').innerHTML = `${balance} $TURBO`;
+    document.getElementById('energy-status').innerHTML = `${energy}/${maxEnergy}`;
+    document.getElementById('energy-bar').style.width = `${(energy / maxEnergy) * 100}%`;
+    document.getElementById('pps').innerHTML = `${pps} Profit Per Second`;
+    updateLeague();
+}
+
 updateUI();
 
 function loadGame() {
@@ -37,9 +46,15 @@ function loadGame() {
     }
     updateUI();
 }
-
 loadGame();
 
+function saveGame() {
+    localStorage.setItem('balance', balance);
+    localStorage.setItem('pps', pps);
+    localStorage.setItem('clickPower', clickPower);
+    localStorage.setItem('energy', energy);
+    localStorage.setItem('maxEnergy', maxEnergy);
+}
 
 function clickCoin() {
     if (energy > 0) {
@@ -69,14 +84,6 @@ function profitps() {
 setInterval(increaseEnergy,1000);
 setInterval(profitps, 1000);
 updateUI();
-
-function updateUI() {
-    document.getElementById('balance').innerHTML = `${balance} $TURBO`;
-    document.getElementById('energy-status').innerHTML = `${energy}/${maxEnergy}`;
-    document.getElementById('energy-bar').style.width = `${(energy / maxEnergy) * 100}%`;
-    document.getElementById('pps').innerHTML = `${pps} Profit Per Second`;
-    updateLeague();
-}
 
 function updateLeague() {
     const leagues = [
@@ -117,15 +124,6 @@ function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
     } else {
         alert('Insufficient $TURBO');
     }
-}
-
-
-function saveGame() {
-    localStorage.setItem('balance', balance);
-    localStorage.setItem('pps', pps);
-    localStorage.setItem('clickPower', clickPower);
-    localStorage.setItem('energy', energy);
-    localStorage.setItem('maxEnergy', maxEnergy);
 }
 
 let x = 0;

@@ -109,11 +109,6 @@ function updateLeague() {
 
 
 function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
-    balance = parseInt(localStorage.getItem('balance'));
-    pps = parseInt(localStorage.getItem('pps'));
-    clickPower = parseInt(localStorage.getItem('clickPower'));
-    maxEnergy = parseInt(localStorage.getItem('maxEnergy'));
-    energy = parseInt(localStorage.getItem('energy'));
     if (balance >= cost) {
         balance -= cost;
         pps += addedPps;

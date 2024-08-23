@@ -125,3 +125,7 @@ body {
         opacity: 0;
     }
 }
+
+#boostsmenu{
+    display: none;
+}

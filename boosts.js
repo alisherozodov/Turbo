@@ -40,17 +40,3 @@ function saveGame() {
     localStorage.setItem('maxEnergy', maxEnergy);
 }
 
-function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
-    loadGame();
-    if (balance >= cost) {
-        balance -= cost;
-        pps += addedPps;
-        clickPower += addedClickPower;
-        energy += addedEnergy;
-        maxEnergy += addedEnergy;
-        saveGame();
-        alert("Done");
-    } else {
-        alert('Insufficient $TURBO');
-    }
-}

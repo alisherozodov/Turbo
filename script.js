@@ -107,6 +107,33 @@ function updateLeague() {
     }
 }
 
+function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
+    loadGame();
+    if (balance >= cost) {
+        balance -= cost;
+        pps += addedPps;
+        clickPower += addedClickPower;
+        energy += addedEnergy;
+        maxEnergy += addedEnergy;
+        saveGame();
+        alert("Done");
+    } else {
+        alert('Insufficient $TURBO');
+    }
+    updateUI();
+}
+
+function openboosts(){
+    document.getElementById("gamemenu").style.setProperty("display", "none");
+    document.getElementById("boostsmenu").style.setProperty("display", "flex");
+}
+
+function bakctogames(){
+    document.getElementById("gamemenu").style.setProperty("display", "flex");
+    document.getElementById("boostsmenu").style.setProperty("display", "none");
+}
+
+
 let x = 0;
 let y = 0;
 let coin = document.getElementById("coin");

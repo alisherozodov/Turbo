@@ -1,3 +1,8 @@
+let balance = 0;
+let pps = 1;
+let clickPower = 1;
+let energy = 100;
+let maxEnergy = 100;
 
 function loadGame() {
     if (localStorage.getItem("balance") == null){

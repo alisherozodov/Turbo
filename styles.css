@@ -154,3 +154,8 @@ body {
     font-size: 200px;
     fill: red;
 }
+
+.closebutton{
+    position: absolute;
+    bottom: 20px;
+}

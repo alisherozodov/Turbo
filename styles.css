@@ -133,7 +133,7 @@ body {
 .dialog{
     position: absolute;
     display: flex;
-    bottom: 0;
+    bottom: -60%;
     left: 0;
     width: 100%;
     height: 60%;
@@ -142,11 +142,12 @@ body {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     box-shadow: inset 0 0 20px 10px rgba(0, 255, 0, 0.5);
-    align-items: center;
+    align-items: start;
     justify-content: center;
     flex-direction: column;
     font-size: 20px;
     gap: 30px;
+    transition: .5s;
 }
 .dialog ion-icon{
     font-size: 200px;

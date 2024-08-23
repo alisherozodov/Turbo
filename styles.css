@@ -160,10 +160,6 @@ body {
     bottom: 30px;
     width: 80%;
     display: flex;
-    text-align: center;
     align-items: center;
     justify-content: center;
-    color: #4caf50;
-    border: none;
-    border-radius: 10px;
 }

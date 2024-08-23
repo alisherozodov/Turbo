@@ -131,11 +131,13 @@ function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
 function openboosts(){
     document.getElementById("gamemenu").style.setProperty("display", "none");
     document.getElementById("boostsmenu").style.setProperty("display", "flex");
+    document.body.style.setProperty("padding-top", "50%");
 }
 
 function backtogames(){
     document.getElementById("gamemenu").style.setProperty("display", "flex");
     document.getElementById("boostsmenu").style.setProperty("display", "none");
+    document.body.style.setProperty("padding-top", "10%");
 }
 
 

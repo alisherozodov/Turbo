@@ -143,7 +143,10 @@ function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
         energy += addedEnergy;
         maxEnergy += addedEnergy;
         saveGame();
-        alert("Done");
+        document.getElementById("dialog-icon").style.setProperty("fill", "green");
+        document.getElementById("dialog-title").innerHTML = "Done!";
+        document.querySelector('.dialog').style.setProperty("bottom", "0");
+        document.querySelector('.dialog').style.setProperty("display", "flex");
     } else {
         showdialog();
     }

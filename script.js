@@ -73,7 +73,7 @@ if (loadGame()){
     energy = Math.min(maxEnergy, energy+timePassed);
     balance += loaded_balance;
     document.getElementById("dialog-icon").style.setProperty("fill", "green");
-    document.getElementById("dialog-icon").innerHTML = `Bot loaded ${loaded_balance} $TURBO for you!`;
+    document.getElementById("dialog-title").innerHTML = `Bot loaded ${loaded_balance} $TURBO for you!`;
     showdialog();
     saveGame();
 }

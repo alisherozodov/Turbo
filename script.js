@@ -8,6 +8,11 @@ document.getElementById('balance').innerHTML = `${balance} $TURBO`;
 document.getElementById('pps').innerHTML = `${pps} Profit Per Second`;
 document.getElementById('energy-status').innerHTML = `${energy}/${maxEnergy}`;
 
+function showdialog(){
+    document.querySelector('.dialog').style.setProperty("display", "flex");
+    document.querySelector('.dialog').style.setProperty("bottom", "0");
+}
+
 function updateUI() {
     document.getElementById('balance').innerHTML = `${balance} $TURBO`;
     document.getElementById('energy-status').innerHTML = `${energy}/${maxEnergy}`;
@@ -118,7 +123,7 @@ function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
         saveGame();
         alert("Done");
     } else {
-        alert('Insufficient $TURBO');
+        showdialog();
     }
     updateUI();
 }
@@ -170,8 +175,4 @@ function closedialog(){
     document.querySelector('.dialog').style.setProperty("bottom", "-60%");
     setTimeout(function(){document.querySelector('.dialog').style.setProperty("display", "none")}, 500);
     
-}
-function showdialog(){
-    document.querySelector('.dialog').style.setProperty("display", "flex");
-    document.querySelector('.dialog').style.setProperty("bottom", "0");
 }

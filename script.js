@@ -164,3 +164,7 @@ coin.addEventListener("click", function() {
         });
     }
 });
+
+function close(element){
+    element.style.setProperty("display", "none");
+}

@@ -159,3 +159,7 @@ body {
     position: absolute;
     bottom: 30px;
 }
+
+span{
+    text-align: center;
+}

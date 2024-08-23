@@ -11,6 +11,8 @@ document.getElementById('pps').innerHTML = `${pps} Profit Per Second`;
 document.getElementById('energy-status').innerHTML = `${energy}/${maxEnergy}`;
 
 function showdialog(){
+    document.getElementById("dialog-icon").style.setProperty("fill", "red");
+    document.getElementById("dialog-title").innerHTML = "Insufficient $TURBO";
     document.querySelector('.dialog').style.setProperty("bottom", "0");
     document.querySelector('.dialog').style.setProperty("display", "flex");
 }

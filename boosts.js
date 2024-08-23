@@ -50,7 +50,6 @@ function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
         maxEnergy += addedEnergy;
         saveGame();
         alert("Done");
-        alert(localStorage);
     } else {
         alert('Insufficient $TURBO');
     }

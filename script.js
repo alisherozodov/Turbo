@@ -53,7 +53,7 @@ function loadGame() {
     } else {
         maxEnergy = parseInt(localStorage.getItem("maxEnergy"));
     }
-    if (localStorage.getItem("banned") == "ture"){
+    if (localStorage.getItem("banned") == "true"){
         window.location.href = "https://turboclicker.vercel.app/banned.html/";
         return false;
     }

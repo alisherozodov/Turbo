@@ -109,6 +109,7 @@ function updateLeague() {
 
 
 function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
+    loadGame();
     if (balance >= cost) {
         balance -= cost;
         pps += addedPps;

@@ -165,6 +165,6 @@ coin.addEventListener("click", function() {
     }
 });
 
-function close(){
+function closedialog(){
     document.querySelector('.dialog').style.setProperty("display", "none");
 }

@@ -68,6 +68,7 @@ h2 {
 
 .backbutton{
     position: fixed;
+    z-index: 2;
     top: 10px;
     left: 10px;
 }

@@ -55,6 +55,7 @@ function loadGame() {
         return false;
     } else {
         lastUpdate = localStorage.getItem("lastUpdate");
+        return True
     }
 }
 

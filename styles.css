@@ -131,7 +131,7 @@ body {
 }
 
 .dialog{
-    position: absolute;
+    position: sticky;
     display: none;
     bottom: -60%;
     left: 0;

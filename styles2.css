@@ -11,7 +11,7 @@ body {
 .game-container {
     text-align: center;
     width: 100vw;
-    height: 100%;
+    height: 100000px;
     padding: 0px 20px;
     background: #212121;
     display: flex;

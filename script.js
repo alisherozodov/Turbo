@@ -44,9 +44,9 @@ function loadGame() {
     } else {
         maxEnergy = parseInt(localStorage.getItem("maxEnergy"));
     }
-    updateUI();
 }
 loadGame();
+updateUI();
 
 function saveGame() {
     localStorage.setItem('balance', balance);

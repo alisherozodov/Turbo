@@ -67,7 +67,7 @@ function clickCoin() {
 
 
 function increaseEnergy() {
-    if(energy >= 0 && energy < maxEnergy) {
+    if(energy < maxEnergy) {
         energy += 1;
         updateUI();
     }

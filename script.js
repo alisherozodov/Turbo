@@ -84,9 +84,9 @@ if (loadGame()){
 updateUI();
 
 function clickCoin() {
-    if (energy > clickPower) {
+    if (energy > 1) {
         balance += clickPower;
-        energy -= clickPower;
+        energy -= 1;
         updateUI();
         saveGame();
     }
@@ -191,7 +191,7 @@ function createParticle(parentElement = document.body, text) {
 }
 
 coin.addEventListener("click", function() {
-    if (energy >= clickPower){
+    if (energy >= 1){
         const particle = createParticle(parentElement = coin, clickPower);
         particle.addEventListener("animationend", function() {
             particle.remove();

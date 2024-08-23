@@ -76,7 +76,8 @@ if (loadGame()){
     balance += loaded_balance;
     document.getElementById("dialog-icon").style.setProperty("fill", "green");
     document.getElementById("dialog-title").innerHTML = `Bot loaded ${loaded_balance} $TURBO for you!`;
-    showdialog();
+    document.querySelector('.dialog').style.setProperty("bottom", "0");
+    document.querySelector('.dialog').style.setProperty("display", "flex");
     saveGame();
 }
 

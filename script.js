@@ -107,21 +107,6 @@ function updateLeague() {
     }
 }
 
-
-function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
-    loadGame();
-    if (balance >= cost) {
-        balance -= cost;
-        pps += addedPps;
-        clickPower += addedClickPower;
-        energy += addedEnergy;
-        maxEnergy += addedEnergy;
-        saveGame();
-    } else {
-        alert('Insufficient $TURBO');
-    }
-}
-
 let x = 0;
 let y = 0;
 let coin = document.getElementById("coin");

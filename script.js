@@ -9,8 +9,8 @@ document.getElementById('pps').innerHTML = `${pps} Profit Per Second`;
 document.getElementById('energy-status').innerHTML = `${energy}/${maxEnergy}`;
 
 function showdialog(){
-    document.querySelector('.dialog').style.setProperty("display", "flex");
     document.querySelector('.dialog').style.setProperty("bottom", "0");
+    document.querySelector('.dialog').style.setProperty("display", "flex");
 }
 
 function updateUI() {

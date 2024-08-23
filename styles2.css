@@ -1,14 +1,5 @@
-body {
-    font-family: 'Orbitron', sans-serif;
-    background-color: #0d0d0d;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
 .game-container {
+    position: relative;
     text-align: center;
     width: 100vw;
     padding: 0px 20px;
@@ -17,6 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 30px;
+    overflow: scroll;
 }
 h2 {
     margin-bottom: 30px;
@@ -24,9 +16,11 @@ h2 {
     color: #4caf50;
 }
 .boosts-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    overflow: scroll;
 }
 .boost {
     background-color: rgba(255, 255, 255, 0.05);

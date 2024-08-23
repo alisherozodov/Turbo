@@ -167,7 +167,9 @@ coin.addEventListener("click", function() {
 
 function closedialog(){
     document.querySelector('.dialog').style.setProperty("bottom", "-60%");
+    document.querySelector('.dialog').style.setProperty("display", "none");
 }
 function showdialog(){
+    document.querySelector('.dialog').style.setProperty("display", "flex");
     document.querySelector('.dialog').style.setProperty("bottom", "0");
 }

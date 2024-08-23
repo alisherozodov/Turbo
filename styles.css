@@ -131,7 +131,7 @@ body {
 
 .dialog{
     position: absolute;
-    display: flex;
+    display: none;
     bottom: -60%;
     left: 0;
     width: 100%;

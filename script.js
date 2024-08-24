@@ -1,4 +1,4 @@
-/*function getOS() {
+function getOS() {
     var userAgent = window.navigator.userAgent || window.navigator.vendor || window.opera;
     if (/windows|win32/i.test(userAgent) || /macintosh|mac os x/i.test(userAgent)) {
         return 'desktop';
@@ -15,7 +15,6 @@ var os = getOS();
 if (os === 'desktop') {
     window.location.href = "error_page.html";
 }
-*/
 let balance = 0;
 let pps = 1;
 let clickPower = 1;

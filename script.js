@@ -1,3 +1,21 @@
+/*function getOS() {
+    var userAgent = window.navigator.userAgent || window.navigator.vendor || window.opera;
+    if (/windows|win32/i.test(userAgent) || /macintosh|mac os x/i.test(userAgent)) {
+        return 'desktop';
+    }
+    else if (/android/i.test(userAgent)) {
+        return 'android';
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return 'ios';
+    } else {
+        return 'unknown';
+    }
+}
+var os = getOS();
+if (os === 'desktop') {
+    window.location.href = "error_page.html";
+}
+*/
 let balance = 0;
 let pps = 1;
 let clickPower = 1;
@@ -5,6 +23,19 @@ let energy = 100;
 let maxEnergy = 100;
 let lastUpdate = 0;
 
+function abbreviateNumber(balance) {
+    if (balance >= 1e15) {
+        return (balance / 1e15).toFixed(1).replace(/\.0$/, '') + 'Q';
+    } else if (balance >= 1e12) {
+        return (balance / 1e12).toFixed(1).replace(/\.0$/, '') + 'T';
+    } else if (balance >= 1e9) {
+        return (balance / 1e9).toFixed(1).replace(/\.0$/, '') + 'B';
+    } else if (balance >= 1e6) {
+        return (balance / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
+    } else {
+        return balance;
+    }
+}
 
 document.getElementById('balance').innerHTML = `${balance} $TURBO`;
 document.getElementById('pps').innerHTML = `${pps} Profit Per Second`;
@@ -18,10 +49,10 @@ function showdialog(){
 }
 
 function updateUI() {
-    document.getElementById('balance').innerHTML = `${balance} $TURBO`;
+    document.getElementById('balance').innerHTML = `${abbreviateNumber(balance)} $TURBO`;
     document.getElementById('energy-status').innerHTML = `${energy}/${maxEnergy}`;
     document.getElementById('energy-bar').style.width = `${(energy / maxEnergy) * 100}%`;
-    document.getElementById('pps').innerHTML = `${pps} Profit Per Second`;
+    document.getElementById('pps').innerHTML = `${abbreviateNumber(pps)} Profit Per Second`;
     updateLeague();
 }
 
@@ -149,6 +180,7 @@ function buyBoost(addedPps,addedClickPower,addedEnergy,cost) {
         clickPower += addedClickPower;
         energy += addedEnergy;
         maxEnergy += addedEnergy;
+        cost*=2;
         saveGame();
         document.getElementById("dialog-icon").style.setProperty("fill", "green");
         document.getElementById("dialog-title").innerHTML = "Done!";

@@ -25,15 +25,15 @@ let lastUpdate = 0;
 
 function abbreviateNumber(balance) {
     if (balance >= 1e15) {
-        return (balance / 1e15).toFixed(1).replace(/\.0$/, '') + 'Q';
+        return (balance / 1e15).toFixed(2).replace(/\.0$/, '') + 'Q';
     } else if (balance >= 1e12) {
-        return (balance / 1e12).toFixed(1).replace(/\.0$/, '') + 'T';
+        return (balance / 1e12).toFixed(2).replace(/\.0$/, '') + 'T';
     } else if (balance >= 1e9) {
-        return (balance / 1e9).toFixed(1).replace(/\.0$/, '') + 'B';
+        return (balance / 1e9).toFixed(2).replace(/\.0$/, '') + 'B';
     } else if (balance >= 1e6) {
-        return (balance / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
+        return (balance / 1e6).toFixed(2).replace(/\.0$/, '') + 'M';
     } else if (balance >= 1e3) {
-        return (balance / 1e3).toFixed(1).replace(/\.0$/, '') + 'K';
+        return (balance / 1e3).toFixed(2).replace(/\.0$/, '') + 'K';
     } else {
         return balance;
     }

@@ -119,15 +119,18 @@ updateUI();
 function updateLeague() {
     const leagues = [
         { name: 'Noob League', threshold: 0 },
-        { name: 'Novice League', threshold: 25000 },
-        { name: 'Experimenter League', threshold: 100000 },
-        { name: 'Candidate League', threshold: 500000 },
-        { name: 'Master League', threshold: 1000000 },
-        { name: 'Ridwan League', threshold: 5000000 },
-        { name: 'Nitro League', threshold: 50000000 },
-        { name: 'GM League', threshold: 100000000 },
-        { name: 'SGM League', threshold: 1000000000 },
-        { name: 'Pro League', threshold: 10000000000 },
+        { name: 'Novice League', threshold: 100000 },
+        { name: 'Experimenter League', threshold: 500000 },
+        { name: 'Candidate League', threshold: 1000000 },
+        { name: 'Master League', threshold: 10000000 },
+        { name: 'Ridwan League', threshold: 50000000 },
+        { name: 'Nitro League', threshold: 100000000 },
+        { name: 'GM League', threshold: 1000000000 },
+        { name: 'SGM League', threshold: 5000000000 },
+        { name: 'Pro League', threshold: 1000000000000 },
+        { name: 'Ultimatum League', threshold: 100000000000000 },
+        { name: 'Boss League', threshold: 1000000000000000 },
+        { name: 'X League', threshold: 10000000000000000 }
     ];
 
     for (let i = leagues.length - 1; i >= 0; i--) {

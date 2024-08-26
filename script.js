@@ -173,6 +173,52 @@ function backtogames() {
     document.body.style.setProperty("padding-top", "10%");
     document.body.style.setProperty("padding-bottom", "30%");
 }
+let x = 0;
+let y = 0;
+let coin = document.getElementById("coin");
+
+document.addEventListener("mousemove",function(e) {
+    const rect = coin.getBoundingClientRect();
+    x = e.clientX - rect.left;
+    y = e.clientY - rect.top;
+});
+
+function createParticle(parentElement = document.body, text) {
+    const particle = document.createElement("div");
+    particle.classList.add("particle");
+    particle.innerHTML = text;
+    particle.style.setProperty("top",y+"px");
+    particle.style.setProperty("left",x+"px");
+    if (parentElement) {
+        parentElement.append(particle);
+    }
+    return particle;
+}
+
+let autotapchecker = 0;
+let lastx = 0;
+let lasty = 0;
+
+coin.addEventListener("click", function() {
+    if (energy >= 1){
+        if (lastx == x && lasty == y){
+            autotapchecker += 1;
+            if (autotapchecker == 100){
+                localStorage.setItem("banned", "true");
+                window.location.href = "https://turboclicker.vercel.app/banned.html/";
+            }
+        } else {
+            autotapchecker = 0;
+        }
+        lastx = x;
+        lasty = y;
+        const particle = createParticle(parentElement = coin, clickPower);
+        particle.addEventListener("animationend", function() {
+            particle.remove();
+        });
+    }
+});
+
 
 function closedialog() {
     document.querySelector('.dialog').style.setProperty("bottom", "-60%");

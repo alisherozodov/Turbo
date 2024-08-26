@@ -33,33 +33,33 @@
         <div class="backbutton boost" onclick="backtogames()">&lt;</div>
         <h2>Select a Boost</h2>
         <div class="boosts-container">
-            <div class="boost">
-                Noob Package: +1 PPS, +1 Click Power, +10 Energy - 10K $TURBO
-                <button class="buy-btn" onclick="buyBoost(1, 1, 10, 10000)">Buy</button>
+            <div class="boost", id="b1">
+                <span>Noob Package: +1 PPS, +1 Click Power, +10 Energy</span>
+                <button class="buy-btn" onclick="buyBoost(1, 1, 10, 1e4, 1)">Buy</button>
+            </div>
+            <div class="boost", id="b2">
+                <span>Boost Package 1: +10 PPS, +3 Click Power, +30 Energy</span>
+                <button class="buy-btn" onclick="buyBoost(10, 3, 30, 1e5, 2)">Buy</button>
+            </div>
+            <div class="boost", id="b3">
+                <span>Boost Package 2: +50 PPS, +5 Click Power, +50 Energy</span>
+                <button class="buy-btn" onclick="buyBoost(50, 5, 50, 1e6, 3)">Buy</button>
+            </div>
+            <div class="boost", id="b2">
+                <span>Boost Package 3: +1K PPS, +10 Click Power, +1K Energy</span>
+                <button class="buy-btn" onclick="buyBoost(1000, 10, 1000, 1e9, 4)">Buy</button>
             </div>
             <div class="boost">
-                Boost Package 1: +10 PPS, +3 Click Power, +30 Energy - 100K $TURBO
-                <button class="buy-btn" onclick="buyBoost(10, 3, 30, 100000)">Buy</button>
+                <span>Special Package: +10K PPS, +100 Click Power, +5K Energy</span>
+                <button class="buy-btn" onclick="buyBoost(10000, 100, 5000, 1e12, 5)">Buy</button>
             </div>
             <div class="boost">
-                Boost Package 2: +50 PPS, +5 Click Power, +50 Energy - 1M $TURBO
-                <button class="buy-btn" onclick="buyBoost(50, 5, 50, 1000000)">Buy</button>
+                <span>Pro Package: +100K PPS, +1K Click Power, +50K Energy</span>
+                <button class="buy-btn" onclick="buyBoost(100000, 100, 50000, 1e13, 6)">Buy</button>
             </div>
             <div class="boost">
-                Boost Package 3: +1K PPS, +10 Click Power, +1K Energy - 1B $TURBO
-                <button class="buy-btn" onclick="buyBoost(1000, 10, 1000, 1000000000)">Buy</button>
-            </div>
-            <div class="boost">
-                Special Package: +10K PPS, +100 Click Power, +5K Energy - 1T $TURBO
-                <button class="buy-btn" onclick="buyBoost(10000, 100, 5000, 1000000000000)">Buy</button>
-            </div>
-            <div class="boost">
-                Pro Package: +100K PPS, +1K Click Power, +50K Energy - 10T $TURBO
-                <button class="buy-btn" onclick="buyBoost(100000, 100, 50000, 10000000000000)">Buy</button>
-            </div>
-            <div class="boost">
-                Ultra Package: +1M PPS, +10K Click Power, +100K Energy - 1Q $TURBO
-                <button class="buy-btn" onclick="buyBoost(1000000, 1000, 100000, 1000000000000000)">Buy</button>
+                <span>Ultra Package: +1M PPS, +10K Click Power, +100K Energy</span>
+                <button class="buy-btn" onclick="buyBoost(1000000, 1000, 100000, 1e15, 7)">Buy</button>
             </div>
         </div>
     </div>

@@ -21,6 +21,7 @@ let clickPower = 1;
 let energy = 100;
 let maxEnergy = 100;
 let lastUpdate = 0;
+let boost_costs = [1e4, 1e5, 1e6, 1e9, 1e12, 1e13, 1e15];
 
 function abbreviateNumber(balance) {
     if (balance >= 1e15) {
@@ -49,6 +50,9 @@ function updateUI() {
     document.getElementById('energy-bar').style.width = `${(energy / maxEnergy) * 100}%`;
     document.getElementById('pps').innerHTML = `${abbreviateNumber(pps)} Profit Per Second`;
     updateLeague();
+    for (i = 0; i<boost_costs.length(); i++){
+        document.getElementById(`b${i+1}`).querySelector("span").innerHTML += ` - ${abbreviateNumber(boost_costs[i])} $TURBO`;
+    }
 }
 
 function loadGame() {
@@ -58,6 +62,7 @@ function loadGame() {
     energy = parseInt(localStorage.getItem("energy") || 100);
     maxEnergy = parseInt(localStorage.getItem("maxEnergy") || 100);
     lastUpdate = parseInt(localStorage.getItem("lastUpdate") || Date.now());
+    boost_costs = JSON.parse(localStorage.getItem("boostCosts") || "[10000,100000,1000000,1000000000,1000000000000,10000000000000,1000000000000000]");
 
     const isBanned = localStorage.getItem("banned") === "true";
     if (isBanned) {
@@ -75,20 +80,24 @@ function saveGame() {
     localStorage.setItem('energy', energy);
     localStorage.setItem('maxEnergy', maxEnergy);
     localStorage.setItem('lastUpdate', Date.now());
+    localStorage.setItem("boostCosts", JSON.stringify(boost_costs));
 }
 
 if (loadGame()) {
     let timePassed = Math.floor((Date.now() - lastUpdate) / 1000);
     let cappedTime = Math.min(timePassed, 3600);
-    let offlineProfit = cappedTime * pps;
-    balance += offlineProfit;
-    energy = Math.min(maxEnergy, energy + cappedTime);
-    document.getElementById("dialog-icon").style.setProperty("fill", "green");
-    document.getElementById("dialog-title").innerHTML = `Bot loaded ${abbreviateNumber(offlineProfit)} $TURBO for you!`;
-    document.querySelector('.dialog').style.setProperty("bottom", "0");
-    document.querySelector('.dialog').style.setProperty("display", "flex");
-    saveGame();
+    if (cappedTime > 0){
+        let offlineProfit = cappedTime * pps;
+        balance += offlineProfit;
+        energy = Math.min(maxEnergy, energy + timePassed);
+        document.getElementById("dialog-icon").style.setProperty("fill", "green");
+        document.getElementById("dialog-title").innerHTML = `Bot loaded ${abbreviateNumber(offlineProfit)} $TURBO for you!`;
+        document.querySelector('.dialog').style.setProperty("bottom", "0");
+        document.querySelector('.dialog').style.setProperty("display", "flex");
+        saveGame();
+    }
 }
+
 
 function clickCoin() {
     if (energy > 1) {
@@ -141,14 +150,16 @@ function updateLeague() {
     }
 }
 
-function buyBoost(addedPps, addedClickPower, addedEnergy, cost) {
+function buyBoost(addedPps, addedClickPower, addedEnergy, garakmidi, index) {
     loadGame();
+    cost = boost_costs[index-1]
     if (balance >= cost) {
         balance -= cost;
         pps += addedPps;
         clickPower += addedClickPower;
         energy += addedEnergy;
         maxEnergy += addedEnergy;
+        boost_costs[index-1] *= 2;
         saveGame();
         document.getElementById("dialog-icon").style.setProperty("fill", "green");
         document.getElementById("dialog-title").innerHTML = "Done!";

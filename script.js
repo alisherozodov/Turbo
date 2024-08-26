@@ -1,4 +1,5 @@
 function getOS() {
+    return "sgsdgs"
     var userAgent = window.navigator.userAgent || window.navigator.vendor || window.opera;
     if (/windows|win32/i.test(userAgent) || /macintosh|mac os x/i.test(userAgent)) {
         return 'desktop';

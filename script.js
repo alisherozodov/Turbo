@@ -1,5 +1,4 @@
 function getOS() {
-    return "sgsdgs"
     var userAgent = window.navigator.userAgent || window.navigator.vendor || window.opera;
     if (/windows|win32/i.test(userAgent) || /macintosh|mac os x/i.test(userAgent)) {
         return 'desktop';
@@ -52,7 +51,7 @@ function updateUI() {
     document.getElementById('pps').innerHTML = `${abbreviateNumber(pps)} Profit Per Second`;
     updateLeague();
     for (i = 0; i<boost_costs.length; i++){
-        document.getElementById(`b${i+1}`).querySelector("span").innerHTML = ` - ${abbreviateNumber(boost_costs[i])} $TURBO`;
+        document.getElementById(`b${i+1}`).querySelector("span").innerHTML = `${abbreviateNumber(boost_costs[i])} $TURBO`;
     }
 }
 

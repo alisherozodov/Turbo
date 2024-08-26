@@ -51,7 +51,7 @@ function updateUI() {
     document.getElementById('energy-bar').style.width = `${(energy / maxEnergy) * 100}%`;
     document.getElementById('pps').innerHTML = `${abbreviateNumber(pps)} Profit Per Second`;
     updateLeague();
-    for (i = 0; i<boost_costs.length(); i++){
+    for (i = 0; i<boost_costs.length; i++){
         document.getElementById(`b${i+1}`).querySelector("span").innerHTML += ` - ${abbreviateNumber(boost_costs[i])} $TURBO`;
     }
 }

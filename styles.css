@@ -157,6 +157,7 @@ body {
 }
 .dialog::before{
     content: "";
+    position: absolute;
     width: 100vw;
     height: 100vh;
     background: #0002;
